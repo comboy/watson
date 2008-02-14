@@ -1,0 +1,26 @@
+<table cellpadding="5" class="tabela">
+<tr>
+  <td>Controller</td>
+  <td>Action</td>
+  <td><a class="table_header" href="optimize_hits.html">hits</a></td>
+  <td><a class="table_header" href="optimize_min_time.html">min req time</a></td>
+  <td><a class="table_header" href="optimize_avg.html">avg req time</a></td>
+  <td><a class="table_header" href="optimize_max_time.html">max req time</a></td>
+  <td><a class="table_header" href="optimize_db_time.html">db time</a></td>
+  <td><a class="table_header" href="optimize_render_time.html">render time</a></td>
+  <td><a class="table_header" href="optimize.html">total time spent</a></td>
+</tr>
+<% for log in logs %>
+<tr bgcolor="<%= log.completed ? '#eeffee' : '#ffeeee' %>">
+  <td><%= log.controller %></td>
+  <td><%= log.action %></td>
+  <td align="right"><%= log.gn %></td>
+  <td align="right"><%= log.ga ? strf(log.min_a) : '-'%></td>
+  <td align="right"><%= log.ga ? strf(log.ga) : '-'%></td>
+  <td align="right"><%= log.ga ? strf(log.max_a) : '-'%></td>
+  <td align="right"><%= log.gd ? ('%0.5f' % log.gd ) : '-'%></td>
+  <td align="right"><%= log.gr ? ('%0.5f' % log.gr ) : '-'%></td>
+  <td align="right"><%= log.ga ? strf(log.ga.to_f*log.gn.to_f) : '-'%></td>
+</tr>
+<% end %>
+</table>

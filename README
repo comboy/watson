@@ -1,0 +1,17 @@
+Watson
+======
+
+Check http://watson.rubyforge.org for more details.
+
+
+Basic usage
+===========
+
+Just type 
+
+    rake watson:go
+    
+And check log/watson directory. 
+
+
+Copyright (c) 2008 Kacper Ciesla, released under the MIT license

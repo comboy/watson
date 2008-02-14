@@ -1,0 +1,28 @@
+<table class="tabela">
+<tr>
+  <td>controller</td>
+  <td>action</td>
+  <td>exception</td>
+  <td>hits</td>
+  <td>latest request</td>
+</tr>
+<% for log in logs %>
+<tr bgcolor="<%= log.completed ? '#ddffdd' : '#ffdddd' %>">
+  <td><%= log.controller.gsub('Controller','') %></td>
+  <td><%= log.action %></td>
+  <td>
+    <%= log.exception_class %>
+    (<a href="#" onclick="document.getElementById('log_<%=log.id %>').style.display = 'block';">full trace</a>)
+  </td>
+  <td><%= log.hits %></td>
+  <td><%= log.requested_at %></td>
+</tr>
+<tr>
+  <td colspan="5">
+    <div id="log_<%= log.id %>" style="display: none; overflow: auto">
+      <pre><%= ERB::Util.html_escape log.full %></pre>
+    </div>
+  </td>
+</tr>
+<% end %>
+</table>
