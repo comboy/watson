@@ -29,7 +29,7 @@ namespace :watson do
     Watson.include
     puts "Creating database ..."
     Watson.create_db
-    puts "Paring logs ..."
+    puts "Parsing logs ..."
     LogParser.parse_file
     puts "Generating reports ..."
     generate = Generator.new

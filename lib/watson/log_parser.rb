@@ -33,7 +33,7 @@ class LogParser
                 if (count % 100 == 0) 
                   print "."; STDOUT.flush
                 end
-                puts "\n#{count} enties done (#{count/(Time.now - start_time)} / sec)"  if (count % 3000 == 0)
+                puts "\n#{count} entries done (#{(count/(Time.now - start_time)).round} / sec)"  if (count % 3000 == 0)
               end
             end
             buffer = line
